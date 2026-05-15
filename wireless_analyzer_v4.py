@@ -60,8 +60,8 @@ DARK_STYLESHEET = """
 QMainWindow, QWidget {
     background-color: #0d1117;
     color: #e6edf3;
-    font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 12px;
+    font-family: 'Segoe UI', 'Arial', sans-serif;
+    font-size: 14px;
 }
 QTabWidget::pane {
     border: 1px solid #30363d;
@@ -69,67 +69,59 @@ QTabWidget::pane {
 }
 QTabBar::tab {
     background: #0d1117;
-    color: #6e7681;
-    padding: 8px 16px;
+    color: #8b949e;
+    padding: 10px 22px;
     border: 1px solid #30363d;
     border-bottom: none;
     margin-right: 2px;
+    font-size: 14px;
+    font-weight: bold;
 }
 QTabBar::tab:selected {
     background: #161b22;
     color: #00d4ff;
     border-top: 2px solid #00d4ff;
 }
-QTabBar::tab:hover {
-    color: #e6edf3;
-    background: #1c2230;
-}
+QTabBar::tab:hover { color: #e6edf3; background: #1c2230; }
 QTableWidget {
     background: #161b22;
     gridline-color: #21262d;
     border: 1px solid #30363d;
     selection-background-color: #1f3a5f;
     alternate-background-color: #1c2230;
+    font-size: 13px;
 }
-QTableWidget::item {
-    padding: 4px 8px;
-    border: none;
-}
+QTableWidget::item { padding: 5px 10px; border: none; }
 QHeaderView::section {
     background: #0d1117;
     color: #00d4ff;
-    padding: 6px 8px;
+    padding: 8px 10px;
     border: 1px solid #30363d;
     font-weight: bold;
-    font-size: 11px;
+    font-size: 13px;
     letter-spacing: 1px;
 }
 QPushButton {
     background: #1c2230;
     color: #00d4ff;
     border: 1px solid #00d4ff;
-    padding: 6px 16px;
-    border-radius: 3px;
+    padding: 8px 18px;
+    border-radius: 4px;
     font-weight: bold;
+    font-size: 13px;
     letter-spacing: 1px;
 }
-QPushButton:hover {
-    background: #00d4ff;
-    color: #0d1117;
-}
-QPushButton:pressed {
-    background: #0099bb;
-}
-QPushButton:disabled {
-    color: #6e7681;
-    border-color: #30363d;
-}
+QPushButton:hover { background: #00d4ff; color: #0d1117; }
+QPushButton:pressed { background: #0099bb; }
+QPushButton:disabled { color: #6e7681; border-color: #30363d; }
 QComboBox {
     background: #1c2230;
     color: #e6edf3;
     border: 1px solid #30363d;
-    padding: 4px 8px;
-    border-radius: 3px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    min-height: 26px;
 }
 QComboBox:hover { border-color: #00d4ff; }
 QComboBox QAbstractItemView {
@@ -137,88 +129,62 @@ QComboBox QAbstractItemView {
     color: #e6edf3;
     selection-background-color: #1f3a5f;
     border: 1px solid #30363d;
+    font-size: 13px;
 }
-QScrollBar:vertical {
-    background: #0d1117;
-    width: 10px;
-    border: none;
-}
+QScrollBar:vertical { background: #0d1117; width: 12px; border: none; }
 QScrollBar::handle:vertical {
-    background: #30363d;
-    border-radius: 5px;
-    min-height: 20px;
+    background: #30363d; border-radius: 6px; min-height: 24px;
 }
 QScrollBar::handle:vertical:hover { background: #00d4ff; }
-QScrollBar:horizontal {
-    background: #0d1117;
-    height: 10px;
-    border: none;
-}
-QScrollBar::handle:horizontal {
-    background: #30363d;
-    border-radius: 5px;
-}
+QScrollBar:horizontal { background: #0d1117; height: 12px; border: none; }
+QScrollBar::handle:horizontal { background: #30363d; border-radius: 6px; }
 QScrollBar::add-line, QScrollBar::sub-line { width: 0; height: 0; }
 QStatusBar {
-    background: #0d1117;
-    color: #6e7681;
-    border-top: 1px solid #30363d;
+    background: #0d1117; color: #8b949e;
+    border-top: 1px solid #30363d; font-size: 13px;
 }
 QGroupBox {
-    border: 1px solid #30363d;
-    border-radius: 4px;
-    margin-top: 8px;
-    padding-top: 8px;
-    color: #00d4ff;
-    font-weight: bold;
+    border: 1px solid #30363d; border-radius: 4px;
+    margin-top: 10px; padding-top: 10px;
+    color: #00d4ff; font-weight: bold; font-size: 13px;
 }
-QGroupBox::title {
-    subcontrol-origin: margin;
-    left: 8px;
-    padding: 0 4px;
-}
-QLabel { color: #e6edf3; }
+QGroupBox::title { subcontrol-origin: margin; left: 8px; padding: 0 4px; }
+QLabel { color: #e6edf3; font-size: 13px; }
 QLineEdit {
-    background: #1c2230;
-    color: #e6edf3;
-    border: 1px solid #30363d;
-    padding: 4px 8px;
-    border-radius: 3px;
+    background: #1c2230; color: #e6edf3;
+    border: 1px solid #30363d; padding: 5px 10px;
+    border-radius: 4px; font-size: 13px;
 }
 QLineEdit:focus { border-color: #00d4ff; }
 QTextEdit {
-    background: #0d1117;
-    color: #39ff14;
+    background: #0d1117; color: #39ff14;
     border: 1px solid #30363d;
-    font-family: 'Consolas', monospace;
-    font-size: 11px;
+    font-family: 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
 }
-QCheckBox { color: #e6edf3; spacing: 6px; }
+QCheckBox { color: #e6edf3; spacing: 8px; font-size: 13px; }
 QCheckBox::indicator {
-    width: 14px; height: 14px;
-    border: 1px solid #30363d;
-    background: #1c2230;
-    border-radius: 2px;
+    width: 16px; height: 16px;
+    border: 1px solid #30363d; background: #1c2230; border-radius: 3px;
 }
-QCheckBox::indicator:checked {
-    background: #00d4ff;
-    border-color: #00d4ff;
-}
+QCheckBox::indicator:checked { background: #00d4ff; border-color: #00d4ff; }
 QToolBar {
-    background: #0d1117;
-    border-bottom: 1px solid #30363d;
-    spacing: 4px;
-    padding: 4px;
+    background: #0d1117; border-bottom: 1px solid #30363d;
+    spacing: 6px; padding: 5px;
 }
 QToolButton {
-    background: transparent;
-    color: #6e7681;
-    border: none;
-    padding: 4px 8px;
-    border-radius: 3px;
+    background: transparent; color: #8b949e;
+    border: none; padding: 6px 12px;
+    border-radius: 4px; font-size: 13px;
 }
 QToolButton:hover { background: #1c2230; color: #e6edf3; }
 QSplitter::handle { background: #30363d; }
+QSpinBox {
+    background: #1c2230; color: #e6edf3;
+    border: 1px solid #30363d; padding: 5px 8px;
+    border-radius: 4px; font-size: 13px;
+}
+QSpinBox:focus { border-color: #00d4ff; }
 """
 
 
@@ -228,7 +194,7 @@ class SignalBar(QWidget):
         super().__init__(parent)
         self.value = value
         self.max_val = max_val
-        self.setFixedSize(80, 16)
+        self.setFixedSize(90, 20)
 
     def setValue(self, v):
         self.value = v
@@ -293,7 +259,7 @@ class ChannelOverlapWidget(QWidget):
 
         # Y-axis labels (dBm)
         p.setPen(QPen(TEXT_DIM, 1))
-        p.setFont(QFont("Consolas", 8))
+        p.setFont(QFont("Consolas", 11))
         for i, db in enumerate([-20, -40, -60, -80, -100]):
             y = margin_t + int(plot_h * i / 4)
             p.drawText(2, y + 4, 55, 12, Qt.AlignRight, f"{db}")
@@ -318,7 +284,7 @@ class ChannelOverlapWidget(QWidget):
 
         # Channel tick labels
         p.setPen(QPen(TEXT_DIM, 1))
-        p.setFont(QFont("Consolas", 8))
+        p.setFont(QFont("Consolas", 11))
         for ch in channels:
             x = ch_to_x(ch)
             p.drawLine(x, margin_t + plot_h, x, margin_t + plot_h + 4)
@@ -426,13 +392,13 @@ class SignalHistoryWidget(QWidget):
             p.drawLine(ml, y, ml + pw, y)
             dbm = -20 - i * 20
             p.setPen(QPen(TEXT_DIM, 1))
-            p.setFont(QFont("Consolas", 8))
+            p.setFont(QFont("Consolas", 11))
             p.drawText(2, y - 5, 50, 12, Qt.AlignRight, f"{dbm} dBm")
             p.setPen(QPen(GRID_CLR, 1, Qt.DashLine))
 
         # Time labels
         p.setPen(QPen(TEXT_DIM, 1))
-        p.setFont(QFont("Consolas", 8))
+        p.setFont(QFont("Consolas", 11))
         for i in range(0, self.max_points + 1, 10):
             x = ml + int(i / self.max_points * pw)
             t = self.max_points - i
@@ -459,7 +425,7 @@ class SignalHistoryWidget(QWidget):
         if self.history:
             lx = ml + 5
             ly = mt + 5
-            p.setFont(QFont("Consolas", 8))
+            p.setFont(QFont("Consolas", 11))
             for idx, ssid in enumerate(list(self.history.keys())[:8]):
                 color = QColor(CHAN_COLORS[idx % len(CHAN_COLORS)])
                 p.setPen(QPen(color, 2))
@@ -511,7 +477,7 @@ class BLERadarWidget(QWidget):
             p.drawEllipse(QPointF(cx, cy), rr, rr)
             dbm = -20 - i * 20
             p.setPen(QPen(TEXT_DIM, 1))
-            p.setFont(QFont("Consolas", 7))
+            p.setFont(QFont("Consolas", 11))
             p.drawText(cx + rr + 2, cy - 4, 30, 12, Qt.AlignLeft, f"{dbm}")
 
         # Sweep line
@@ -550,7 +516,7 @@ class BLERadarWidget(QWidget):
             p.setBrush(QBrush(color))
             p.drawEllipse(QPointF(dx, dy), 5, 5)
             p.setPen(QPen(color, 1))
-            p.setFont(QFont("Consolas", 7))
+            p.setFont(QFont("Consolas", 11))
             name = dev.get("name", dev.get("address","?"))[:10]
             p.drawText(int(dx) + 7, int(dy) - 4, 80, 12, Qt.AlignLeft, name)
 
@@ -634,34 +600,62 @@ class ScannerThread(QThread):
         return self._mock_wifi()
 
     def _try_nmcli(self):
+        # Use column-mode output to avoid BSSID colon-splitting issues
         out = subprocess.check_output(
-            ["nmcli", "-t", "-f", "SSID,BSSID,MODE,CHAN,FREQ,RATE,SIGNAL,SECURITY",
+            ["nmcli", "-f", "SSID,BSSID,MODE,CHAN,FREQ,RATE,SIGNAL,SECURITY",
              "dev", "wifi", "list"],
             stderr=subprocess.DEVNULL, timeout=8
         ).decode(errors="ignore")
         nets = []
-        for line in out.splitlines():
-            parts = line.split(":")
-            if len(parts) < 8:
+        lines = out.splitlines()
+        if len(lines) < 2:
+            return nets
+        # Parse header to get column positions
+        header = lines[0]
+        col_names = header.split()
+        # Find start positions of each column by scanning header
+        col_positions = []
+        pos = 0
+        for col in col_names:
+            p = header.index(col, pos)
+            col_positions.append(p)
+            pos = p + len(col)
+        col_positions.append(len(header) + 200)  # sentinel
+
+        for line in lines[1:]:
+            if not line.strip() or line.strip().startswith("--"):
                 continue
-            ssid, bssid, mode, chan, freq, rate, sig, sec = parts[:8]
+            def get_col(i):
+                start = col_positions[i]
+                end   = col_positions[i + 1]
+                return line[start:end].strip() if start < len(line) else ""
+
             try:
-                signal_pct = int(sig)
+                ssid  = get_col(0) or "<hidden>"
+                bssid = get_col(1)
+                mode  = get_col(2)
+                chan  = get_col(3)
+                freq  = get_col(4)
+                rate  = get_col(5)
+                sig   = get_col(6)
+                sec   = get_col(7)
+
+                signal_pct = int(sig) if sig.isdigit() else 0
                 dbm = signal_pct // 2 - 100
                 channel = int(chan) if chan.isdigit() else 6
-                band = "5GHz" if "5" in freq else "2.4GHz"
+                band = "5GHz" if freq.startswith("5") else "2.4GHz"
                 nets.append({
-                    "ssid": ssid or "<hidden>",
-                    "bssid": bssid.replace("\\", ":"),
-                    "channel": channel,
-                    "signal": dbm,
-                    "band": band,
-                    "security": sec or "OPEN",
-                    "mode": mode,
-                    "rate": rate,
-                    "snr": dbm + 95,
+                    "ssid":     ssid,
+                    "bssid":    bssid,
+                    "channel":  channel,
+                    "signal":   dbm,
+                    "band":     band,
+                    "security": sec.strip() or "OPEN",
+                    "mode":     mode,
+                    "rate":     rate,
+                    "snr":      dbm + 95,
                 })
-            except ValueError:
+            except (ValueError, IndexError):
                 continue
         return nets
 
@@ -1184,7 +1178,7 @@ class AuditScoreWidget(QWidget):
         p.setPen(QPen(score_clr, 1))
         p.setFont(QFont("Consolas", 20, QFont.Bold))
         p.drawText(cx - 30, cy - 14, 60, 28, Qt.AlignHCenter, str(self._score))
-        p.setFont(QFont("Consolas", 8))
+        p.setFont(QFont("Consolas", 11))
         p.setPen(QPen(TEXT_DIM, 1))
         p.drawText(cx - 30, cy + 14, 60, 14, Qt.AlignHCenter, "/100")
 
@@ -1201,7 +1195,7 @@ class AuditScoreWidget(QWidget):
         p.setFont(QFont("Consolas", 9, QFont.Bold))
         p.setPen(QPen(TEXT_PRIMARY, 1))
         p.drawText(lx, 14, 200, 16, Qt.AlignLeft, "Security Score")
-        p.setFont(QFont("Consolas", 9))
+        p.setFont(QFont("Consolas", 11))
         p.setPen(QPen(TEXT_DIM, 1))
         p.drawText(lx, 32, 200, 14, Qt.AlignLeft, f"Total findings : {self._findings}")
         thresholds = [
@@ -1266,10 +1260,10 @@ class WirelessAnalyzer(QMainWindow):
         self.status = QStatusBar()
         self.setStatusBar(self.status)
         self.status_label = QLabel("● IDLE")
-        self.status_label.setStyleSheet("color: #6e7681;")
+        self.status_label.setStyleSheet("color: #8b949e; font-size:13px;")
         self.status.addWidget(self.status_label)
         self.scan_info = QLabel("")
-        self.scan_info.setStyleSheet("color: #6e7681;")
+        self.scan_info.setStyleSheet("color: #8b949e; font-size:13px;")
         self.status.addPermanentWidget(self.scan_info)
 
     def _build_toolbar(self):
@@ -1329,7 +1323,7 @@ class WirelessAnalyzer(QMainWindow):
 
         # Time label
         self.time_label = QLabel()
-        self.time_label.setStyleSheet("color:#00d4ff; font-family:Consolas; padding: 0 8px;")
+        self.time_label.setStyleSheet("color:#00d4ff; font-family:Consolas; font-size:15px; font-weight:bold; padding: 0 10px;")
         tb.addWidget(self.time_label)
 
         # Update clock
@@ -1349,21 +1343,21 @@ class WirelessAnalyzer(QMainWindow):
         layout.setContentsMargins(12, 0, 12, 0)
 
         title = QLabel("⚡ WIRELESS ANALYZER PRO")
-        title.setStyleSheet("color:#00d4ff; font-size:14px; font-weight:bold; letter-spacing:2px;")
+        title.setStyleSheet("color:#00d4ff; font-size:16px; font-weight:bold; letter-spacing:2px;")
         layout.addWidget(title)
 
         layout.addStretch()
 
         self.wifi_count_lbl = QLabel("WiFi: 0")
-        self.wifi_count_lbl.setStyleSheet("color:#39ff14; font-weight:bold; margin: 0 12px;")
+        self.wifi_count_lbl.setStyleSheet("color:#39ff14; font-size:14px; font-weight:bold; margin: 0 12px;")
         layout.addWidget(self.wifi_count_lbl)
 
         self.ble_count_lbl = QLabel("BLE: 0")
-        self.ble_count_lbl.setStyleSheet("color:#a855f7; font-weight:bold; margin: 0 12px;")
+        self.ble_count_lbl.setStyleSheet("color:#a855f7; font-size:14px; font-weight:bold; margin: 0 12px;")
         layout.addWidget(self.ble_count_lbl)
 
         self.scan_status_lbl = QLabel("● SCANNING")
-        self.scan_status_lbl.setStyleSheet("color:#39ff14; font-weight:bold; margin: 0 12px;")
+        self.scan_status_lbl.setStyleSheet("color:#39ff14; font-size:14px; font-weight:bold; margin: 0 12px;")
         layout.addWidget(self.scan_status_lbl)
 
         # Pulse animation
@@ -1376,9 +1370,9 @@ class WirelessAnalyzer(QMainWindow):
 
     def _pulse(self):
         if self._pulse_state:
-            self.scan_status_lbl.setStyleSheet("color:#0d5c1e; font-weight:bold; margin:0 12px;")
+            self.scan_status_lbl.setStyleSheet("color:#0d5c1e; font-size:14px; font-weight:bold; margin:0 12px;")
         else:
-            self.scan_status_lbl.setStyleSheet("color:#39ff14; font-weight:bold; margin:0 12px;")
+            self.scan_status_lbl.setStyleSheet("color:#39ff14; font-size:14px; font-weight:bold; margin:0 12px;")
         self._pulse_state = not self._pulse_state
 
     def _build_wifi_tab(self):
@@ -1526,7 +1520,7 @@ class WirelessAnalyzer(QMainWindow):
             self.act_scan.setText("▶  START SCAN")
             self._pulse_timer.stop()
             self.scan_status_lbl.setText("● IDLE")
-            self.scan_status_lbl.setStyleSheet("color:#6e7681; font-weight:bold; margin:0 12px;")
+            self.scan_status_lbl.setStyleSheet("color:#6e7681; font-size:14px; font-weight:bold; margin:0 12px;")
             if hasattr(self, "scanner"):
                 self.scanner.stop()
 
@@ -1618,9 +1612,9 @@ class WirelessAnalyzer(QMainWindow):
             self.wifi_table.setRowHidden(row, hide)
 
         self.wifi_table.setSortingEnabled(True)
-        self.wifi_table.setRowHeight(0, 28)
+        self.wifi_table.setRowHeight(0, 30)
         for row in range(self.wifi_table.rowCount()):
-            self.wifi_table.setRowHeight(row, 26)
+            self.wifi_table.setRowHeight(row, 30)
 
     def _refresh_ble_table(self, devices):
         self.ble_table.setRowCount(len(devices))
@@ -1644,7 +1638,7 @@ class WirelessAnalyzer(QMainWindow):
                 if col == 6:
                     item.setForeground(QColor("#39ff14") if val == "✓" else TEXT_DIM)
                 self.ble_table.setItem(row, col, item)
-            self.ble_table.setRowHeight(row, 26)
+            self.ble_table.setRowHeight(row, 30)
 
     def _update_channel_chart(self):
         band = self.ch_band_combo.currentText()
@@ -1653,8 +1647,11 @@ class WirelessAnalyzer(QMainWindow):
         # Channel congestion table
         chan_count = defaultdict(list)
         for n in self.wifi_data:
-            if n.get("band","2.4GHz") == band:
-                chan_count[n["channel"]].append(n["signal"])
+            if n.get("band", "2.4GHz") == band:
+                ch  = n.get("channel", None)
+                sig = n.get("signal", -100)
+                if ch is not None:
+                    chan_count[ch].append(sig)
 
         if band == "2.4GHz":
             non_overlap = [1, 6, 11]
@@ -1678,7 +1675,7 @@ class WirelessAnalyzer(QMainWindow):
                 elif col == 3 and val:
                     item.setForeground(QColor("#39ff14"))
                 self.chan_table.setItem(row, col, item)
-            self.chan_table.setRowHeight(row, 24)
+            self.chan_table.setRowHeight(row, 30)
 
     # ─── Packet Sniffer Tab ───────────────────────────────────────────────────
     def _build_sniffer_tab(self):
@@ -1713,7 +1710,7 @@ class WirelessAnalyzer(QMainWindow):
         ctrl.addStretch()
 
         self.sniff_count_lbl = QLabel("Packets: 0")
-        self.sniff_count_lbl.setStyleSheet("color:#00d4ff; font-weight:bold;")
+        self.sniff_count_lbl.setStyleSheet("color:#00d4ff; font-size:13px; font-weight:bold;")
         ctrl.addWidget(self.sniff_count_lbl)
 
         self.btn_sniff = QPushButton("▶  START CAPTURE")
@@ -1762,7 +1759,7 @@ class WirelessAnalyzer(QMainWindow):
         dl_layout.addWidget(QLabel("  Frame Decode"))
         self.pkt_decode = QTextEdit()
         self.pkt_decode.setReadOnly(True)
-        self.pkt_decode.setFont(QFont("Consolas", 10))
+        self.pkt_decode.setFont(QFont("Consolas", 12))
         dl_layout.addWidget(self.pkt_decode)
         detail_split.addWidget(detail_left)
 
@@ -1773,7 +1770,7 @@ class WirelessAnalyzer(QMainWindow):
         dr_layout.addWidget(QLabel("  Hex Dump"))
         self.pkt_hex = QTextEdit()
         self.pkt_hex.setReadOnly(True)
-        self.pkt_hex.setFont(QFont("Consolas", 10))
+        self.pkt_hex.setFont(QFont("Consolas", 12))
         dr_layout.addWidget(self.pkt_hex)
         detail_split.addWidget(detail_right)
 
@@ -1904,7 +1901,7 @@ class WirelessAnalyzer(QMainWindow):
 
         row = self.pkt_table.rowCount()
         self.pkt_table.insertRow(row)
-        self.pkt_table.setRowHeight(row, 22)
+        self.pkt_table.setRowHeight(row, 30)
 
         ptype   = pkt.get("type","?")
         subtype = pkt.get("subtype","—")
@@ -2310,7 +2307,7 @@ class WirelessAnalyzer(QMainWindow):
                     item.setForeground(clr)
                     item.setFont(QFont("Consolas", 10, QFont.Bold))
                 self.sec_table.setItem(row, col, item)
-            self.sec_table.setRowHeight(row, 26)
+            self.sec_table.setRowHeight(row, 30)
 
         for sev, lbl in self.sec_summary_labels.items():
             lbl.setText(f"{sev}: {counts.get(sev,0)}")

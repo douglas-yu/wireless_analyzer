@@ -47,7 +47,7 @@ ACCENT_PURPLE=QColor("#a855f7")
 TEXT_PRIMARY= QColor("#e6edf3")
 TEXT_DIM    = QColor("#6e7681")
 BORDER_CLR  = QColor("#30363d")
-GRID_CLR    = QColor("#1f2937")
+GRID_CLR    = QColor("#371f2b")
 
 # Channel colors for overlap chart
 CHAN_COLORS = [
@@ -61,7 +61,7 @@ QMainWindow, QWidget {
     background-color: #0d1117;
     color: #e6edf3;
     font-family: 'Consolas', 'Courier New', monospace;
-    font-size: 12px;
+    font-size: 16px;
 }
 QTabWidget::pane {
     border: 1px solid #30363d;
@@ -101,7 +101,7 @@ QHeaderView::section {
     padding: 6px 8px;
     border: 1px solid #30363d;
     font-weight: bold;
-    font-size: 11px;
+    font-size: 14px;
     letter-spacing: 1px;
 }
 QPushButton {
@@ -191,7 +191,7 @@ QTextEdit {
     color: #39ff14;
     border: 1px solid #30363d;
     font-family: 'Consolas', monospace;
-    font-size: 11px;
+    font-size: 14px;
 }
 QCheckBox { color: #e6edf3; spacing: 6px; }
 QCheckBox::indicator {
@@ -293,7 +293,7 @@ class ChannelOverlapWidget(QWidget):
 
         # Y-axis labels (dBm)
         p.setPen(QPen(TEXT_DIM, 1))
-        p.setFont(QFont("Consolas", 8))
+        p.setFont(QFont("Consolas", 12))
         for i, db in enumerate([-20, -40, -60, -80, -100]):
             y = margin_t + int(plot_h * i / 4)
             p.drawText(2, y + 4, 55, 12, Qt.AlignRight, f"{db}")
@@ -318,7 +318,7 @@ class ChannelOverlapWidget(QWidget):
 
         # Channel tick labels
         p.setPen(QPen(TEXT_DIM, 1))
-        p.setFont(QFont("Consolas", 8))
+        p.setFont(QFont("Consolas", 12))
         for ch in channels:
             x = ch_to_x(ch)
             p.drawLine(x, margin_t + plot_h, x, margin_t + plot_h + 4)
@@ -326,7 +326,7 @@ class ChannelOverlapWidget(QWidget):
 
         # X axis label
         p.setPen(QPen(TEXT_PRIMARY, 1))
-        p.setFont(QFont("Consolas", 9, QFont.Bold))
+        p.setFont(QFont("Consolas", 12, QFont.Bold))
         p.drawText(0, h - 14, w, 14, Qt.AlignHCenter, f"Channel ({self.band})")
 
         # Draw each network as a bell curve
@@ -378,7 +378,7 @@ class ChannelOverlapWidget(QWidget):
             peak_x = ch_to_x(ch)
             peak_y = dbm_to_y(sig) - 4
             p.setPen(QPen(color, 1))
-            p.setFont(QFont("Consolas", 8, QFont.Bold))
+            p.setFont(QFont("Consolas", 12, QFont.Bold))
             lbl = ssid[:10] if len(ssid) > 10 else ssid
             p.drawText(peak_x - 30, peak_y - 12, 60, 12, Qt.AlignHCenter, lbl)
 
@@ -426,13 +426,13 @@ class SignalHistoryWidget(QWidget):
             p.drawLine(ml, y, ml + pw, y)
             dbm = -20 - i * 20
             p.setPen(QPen(TEXT_DIM, 1))
-            p.setFont(QFont("Consolas", 8))
+            p.setFont(QFont("Consolas", 12))
             p.drawText(2, y - 5, 50, 12, Qt.AlignRight, f"{dbm} dBm")
             p.setPen(QPen(GRID_CLR, 1, Qt.DashLine))
 
         # Time labels
         p.setPen(QPen(TEXT_DIM, 1))
-        p.setFont(QFont("Consolas", 8))
+        p.setFont(QFont("Consolas", 12))
         for i in range(0, self.max_points + 1, 10):
             x = ml + int(i / self.max_points * pw)
             t = self.max_points - i
@@ -459,7 +459,7 @@ class SignalHistoryWidget(QWidget):
         if self.history:
             lx = ml + 5
             ly = mt + 5
-            p.setFont(QFont("Consolas", 8))
+            p.setFont(QFont("Consolas", 12))
             for idx, ssid in enumerate(list(self.history.keys())[:8]):
                 color = QColor(CHAN_COLORS[idx % len(CHAN_COLORS)])
                 p.setPen(QPen(color, 2))
@@ -511,7 +511,7 @@ class BLERadarWidget(QWidget):
             p.drawEllipse(QPointF(cx, cy), rr, rr)
             dbm = -20 - i * 20
             p.setPen(QPen(TEXT_DIM, 1))
-            p.setFont(QFont("Consolas", 7))
+            p.setFont(QFont("Consolas", 11))
             p.drawText(cx + rr + 2, cy - 4, 30, 12, Qt.AlignLeft, f"{dbm}")
 
         # Sweep line
@@ -550,7 +550,7 @@ class BLERadarWidget(QWidget):
             p.setBrush(QBrush(color))
             p.drawEllipse(QPointF(dx, dy), 5, 5)
             p.setPen(QPen(color, 1))
-            p.setFont(QFont("Consolas", 7))
+            p.setFont(QFont("Consolas", 11))
             name = dev.get("name", dev.get("address","?"))[:10]
             p.drawText(int(dx) + 7, int(dy) - 4, 80, 12, Qt.AlignLeft, name)
 
@@ -561,7 +561,7 @@ class BLERadarWidget(QWidget):
 
         # Title
         p.setPen(QPen(TEXT_DIM, 1))
-        p.setFont(QFont("Consolas", 8, QFont.Bold))
+        p.setFont(QFont("Consolas", 12, QFont.Bold))
         p.drawText(0, 2, w, 14, Qt.AlignHCenter, "BLE RADAR")
         p.end()
 
@@ -1184,7 +1184,7 @@ class AuditScoreWidget(QWidget):
         p.setPen(QPen(score_clr, 1))
         p.setFont(QFont("Consolas", 20, QFont.Bold))
         p.drawText(cx - 30, cy - 14, 60, 28, Qt.AlignHCenter, str(self._score))
-        p.setFont(QFont("Consolas", 8))
+        p.setFont(QFont("Consolas", 12))
         p.setPen(QPen(TEXT_DIM, 1))
         p.drawText(cx - 30, cy + 14, 60, 14, Qt.AlignHCenter, "/100")
 
@@ -1198,10 +1198,10 @@ class AuditScoreWidget(QWidget):
 
         # Legend
         lx = cx + r + 20
-        p.setFont(QFont("Consolas", 9, QFont.Bold))
+        p.setFont(QFont("Consolas", 12, QFont.Bold))
         p.setPen(QPen(TEXT_PRIMARY, 1))
         p.drawText(lx, 14, 200, 16, Qt.AlignLeft, "Security Score")
-        p.setFont(QFont("Consolas", 9))
+        p.setFont(QFont("Consolas", 12))
         p.setPen(QPen(TEXT_DIM, 1))
         p.drawText(lx, 32, 200, 14, Qt.AlignLeft, f"Total findings : {self._findings}")
         thresholds = [
@@ -1653,8 +1653,11 @@ class WirelessAnalyzer(QMainWindow):
         # Channel congestion table
         chan_count = defaultdict(list)
         for n in self.wifi_data:
-            if n.get("band","2.4GHz") == band:
-                chan_count[n["channel"]].append(n["signal"])
+            if n.get("band", "2.4GHz") == band:
+                ch  = n.get("channel", None)
+                sig = n.get("signal", -100)
+                if ch is not None:
+                    chan_count[ch].append(sig)
 
         if band == "2.4GHz":
             non_overlap = [1, 6, 11]
@@ -1762,7 +1765,7 @@ class WirelessAnalyzer(QMainWindow):
         dl_layout.addWidget(QLabel("  Frame Decode"))
         self.pkt_decode = QTextEdit()
         self.pkt_decode.setReadOnly(True)
-        self.pkt_decode.setFont(QFont("Consolas", 10))
+        self.pkt_decode.setFont(QFont("Consolas", 12))
         dl_layout.addWidget(self.pkt_decode)
         detail_split.addWidget(detail_left)
 
@@ -1773,7 +1776,7 @@ class WirelessAnalyzer(QMainWindow):
         dr_layout.addWidget(QLabel("  Hex Dump"))
         self.pkt_hex = QTextEdit()
         self.pkt_hex.setReadOnly(True)
-        self.pkt_hex.setFont(QFont("Consolas", 10))
+        self.pkt_hex.setFont(QFont("Consolas", 12))
         dr_layout.addWidget(self.pkt_hex)
         detail_split.addWidget(detail_right)
 
@@ -1787,7 +1790,7 @@ class WirelessAnalyzer(QMainWindow):
         self.pkt_stat_labels = {}
         for key in ["Mgmt","Ctrl","Data","Beacon","Probe","Auth","Assoc","Deauth"]:
             lbl = QLabel(f"{key}: 0")
-            lbl.setStyleSheet("color:#6e7681; font-size:10px; margin:0 6px;")
+            lbl.setStyleSheet("color:#6e7681; font-size:12px; margin:0 6px;")
             stats_row.addWidget(lbl)
             self.pkt_stat_labels[key] = lbl
         stats_row.addStretch()
@@ -2034,11 +2037,12 @@ class WirelessAnalyzer(QMainWindow):
         # Right: detail + score
         right = QWidget()
         rl = QVBoxLayout(right)
-        rl.setContentsMargins(4,0,0,0)
+        rl.setContentsMargins(8,8,8,8)
 
         # Score widget
         self.audit_score_widget = AuditScoreWidget()
-        self.audit_score_widget.setFixedHeight(160)
+        self.audit_score_widget.setFixedHeight(300)
+    
         rl.addWidget(self.audit_score_widget)
 
         rl.addWidget(QLabel("  Finding Detail"))
@@ -2308,7 +2312,7 @@ class WirelessAnalyzer(QMainWindow):
                 item.setFlags(Qt.ItemIsEnabled | Qt.ItemIsSelectable)
                 if col == 0:
                     item.setForeground(clr)
-                    item.setFont(QFont("Consolas", 10, QFont.Bold))
+                    item.setFont(QFont("Consolas", 14, QFont.Bold))
                 self.sec_table.setItem(row, col, item)
             self.sec_table.setRowHeight(row, 26)
 

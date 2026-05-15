@@ -1653,8 +1653,11 @@ class WirelessAnalyzer(QMainWindow):
         # Channel congestion table
         chan_count = defaultdict(list)
         for n in self.wifi_data:
-            if n.get("band","2.4GHz") == band:
-                chan_count[n["channel"]].append(n["signal"])
+            if n.get("band", "2.4GHz") == band:
+                ch  = n.get("channel", None)
+                sig = n.get("signal", -100)
+                if ch is not None:
+                    chan_count[ch].append(sig)
 
         if band == "2.4GHz":
             non_overlap = [1, 6, 11]
