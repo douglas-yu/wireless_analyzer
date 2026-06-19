@@ -5,7 +5,7 @@ Wireless Analyzer Pro - WiFi & Bluetooth LE Scanner
 import sys, os, re, time, math, random, subprocess, threading
 from datetime import datetime
 from collections import defaultdict
-from winrt_wifi_patch import apply_winrt_patch
+
 from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QTabWidget, QTableWidget, QTableWidgetItem, QHeaderView,
@@ -99,7 +99,7 @@ QStatusBar { background:#0d1117; color:#8b949e; border-top:1px solid #30363d; fo
 QLabel     { color:#e6edf3; font-size:14px; }
 QLineEdit  { background:#1c2230; color:#e6edf3; border:1px solid #30363d; padding:5px 10px; border-radius:4px; font-size:13px; }
 QLineEdit:focus { border-color:#00d4ff; }
-QTextEdit  { background:#0d1117; color:#39ff14; border:1px solid #30363d; font-family:'Consolas','Courier New',monospace; font-size:14px; }
+QTextEdit  { background:#0d1117; color:#39ff14; border:1px solid #30363d; font-family:'Consolas','Courier New',monospace; font-size:13px; }
 QCheckBox  { color:#e6edf3; spacing:8px; font-size:13px; }
 QCheckBox::indicator { width:16px; height:16px; border:1px solid #30363d; background:#1c2230; border-radius:3px; }
 QCheckBox::indicator:checked { background:#00d4ff; border-color:#00d4ff; }
@@ -111,7 +111,6 @@ QSpinBox   { background:#1c2230; color:#e6edf3; border:1px solid #30363d; paddin
 QGroupBox  { border:1px solid #30363d; border-radius:4px; margin-top:10px; padding-top:10px; color:#00d4ff; font-weight:bold; font-size:14px; }
 QGroupBox::title { subcontrol-origin:margin; left:8px; padding:0 4px; }
 """
-
 
 # ── Signal Bar ────────────────────────────────────────────────────────────────
 class SignalBar(QWidget):
@@ -676,7 +675,7 @@ class ScannerThread(QThread):
                  "paired":random.choice([True,False]),
                  "connected":random.choice([True,False,False])}
                 for i,(n,a,r,t) in enumerate(data)]
-apply_winrt_patch(ScannerThread)
+
 # ── Packet Sniffer Thread ─────────────────────────────────────────────────────
 class PacketSnifferThread(QThread):
     packet_captured = pyqtSignal(dict)
@@ -1110,7 +1109,6 @@ class WirelessAnalyzer(QMainWindow):
         banner.setStyleSheet(
             "background:#2a1800; color:#ffd700; border:1px solid #ff6b35;"
             "padding:8px 12px; border-radius:4px; font-weight:bold; font-size:13px;")
-        banner.setMaximumHeight(80)
         banner.setWordWrap(True); lo.addWidget(banner)
         ctrl = QHBoxLayout(); ctrl.addWidget(QLabel("Target:"))
         self.sec_target = QComboBox(); self.sec_target.setFixedWidth(240)
@@ -1148,7 +1146,6 @@ class WirelessAnalyzer(QMainWindow):
         for sev, clr in [("CRITICAL","#ff2d78"),("HIGH","#ff6b35"),
                           ("MEDIUM","#ffd700"),("LOW","#39ff14"),("INFO","#00d4ff")]:
             lbl = QLabel(f"{sev}: 0")
-            lbl.setMaximumHeight(100)
             lbl.setStyleSheet(f"color:{clr}; font-weight:bold; font-size:13px; margin:0 10px;")
             sum_row.addWidget(lbl); self.sev_lbls[sev] = lbl
         sum_row.addStretch(); lo.addLayout(sum_row)
